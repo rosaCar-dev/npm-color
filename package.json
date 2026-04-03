@@ -1,0 +1,201 @@
+{
+  "name": "npm-color",
+  "displayName": "NPM Color",
+  "description": "Visual npm/pnpm/yarn script manager for monorepos. Auto-detects all packages, color-coded terminals, unified panel.",
+  "version": "0.1.0",
+  "publisher": "rosa-dev",
+   "repository": {
+    "type": "git",
+    "url": "https://github.com/rosaCar-dev/npm-color.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "npm",
+    "pnpm",
+    "yarn",
+    "monorepo",
+    "microfrontend",
+    "scripts",
+    "color",
+    "terminal",
+    "productivity"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/package.json"
+  ],
+  "main": "./out/extension.js",
+  "icon": "images/icon.png",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "npmcolor",
+          "title": "NPM Color",
+          "icon": "images/activitybar-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "npmcolor": [
+        {
+          "id": "npmcolor.packagesView",
+          "name": "Packages",
+          "icon": "images/activitybar-icon.svg"
+        }
+      ],
+      "explorer": [
+        {
+          "id": "npmcolor.packagesViewExplorer",
+          "name": "NPM Color",
+          "icon": "images/activitybar-icon.svg",
+          "when": "config.npmcolor.showInExplorer"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "npmcolor.refresh",
+        "title": "Refresh Packages",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "npmcolor.runScript",
+        "title": "Run Script",
+        "icon": "$(play)"
+      },
+      {
+        "command": "npmcolor.stopScript",
+        "title": "Stop Script",
+        "icon": "$(stop)"
+      },
+      {
+        "command": "npmcolor.reloadScript",
+        "title": "Restart Script",
+        "icon": "$(debug-restart)"
+      },
+      {
+        "command": "npmcolor.openPackageJson",
+        "title": "Open package.json",
+        "icon": "$(go-to-file)"
+      },
+      {
+        "command": "npmcolor.stopAll",
+        "title": "Stop All Running Scripts",
+        "icon": "$(stop-circle)"
+      },
+      {
+        "command": "npmcolor.editPackageMeta",
+        "title": "Edit Package (alias, icon)",
+        "icon": "$(edit)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "npmcolor.refresh",
+          "when": "view == npmcolor.packagesView || view == npmcolor.packagesViewExplorer",
+          "group": "navigation@1"
+        },
+        {
+          "command": "npmcolor.stopAll",
+          "when": "view == npmcolor.packagesView || view == npmcolor.packagesViewExplorer",
+          "group": "navigation@2"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "npmcolor.runScript",
+          "when": "viewItem == script",
+          "group": "inline@1"
+        },
+        {
+          "command": "npmcolor.stopScript",
+          "when": "viewItem == scriptRunning",
+          "group": "inline@1"
+        },
+        {
+          "command": "npmcolor.reloadScript",
+          "when": "viewItem == scriptRunning",
+          "group": "inline@2"
+        },
+        {
+          "command": "npmcolor.openPackageJson",
+          "when": "viewItem == package",
+          "group": "inline@1"
+        },
+        {
+          "command": "npmcolor.editPackageMeta",
+          "when": "viewItem == package",
+          "group": "inline@2"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "NPM Color",
+      "properties": {
+        "npmcolor.exclude": {
+          "type": "array",
+          "default": [
+            "**/node_modules/**",
+            "**/dist/**",
+            "**/build/**",
+            "**/.git/**"
+          ],
+          "description": "Glob patterns to exclude when scanning for package.json files"
+        },
+        "npmcolor.maxDepth": {
+          "type": "number",
+          "default": 6,
+          "description": "Max folder depth to scan"
+        },
+        "npmcolor.packageColors": {
+          "type": "object",
+          "default": {},
+          "description": "Custom color per package name. Example: { \"my-app\": \"#ff6b6b\" }"
+        },
+        "npmcolor.packageManager": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "npm",
+            "pnpm",
+            "yarn"
+          ],
+          "default": "auto",
+          "description": "Package manager to use. Auto detects from lock file."
+        },
+        "npmcolor.colorMode": {
+  "type": "string",
+  "enum": ["auto", "custom"],
+  "default": "auto",
+  "description": "Color mode: auto (index-based) or custom (user-defined)"
+},
+        "npmcolor.showInExplorer": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show Package Lens panel in the Explorer sidebar too"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.3.0"
+  },
+  "license": "MIT"
+}
