@@ -6,6 +6,8 @@
 > Run, track, and manage NPM, Yarn, and PNPM scripts with **instant visual clarity**. Color-coded packages, real-time status, and clean terminals — all in one panel. Perfect for monorepos and multi-service projects.
 
 ---
+**Panel view with colored packages**
+   ![Panel Screenshot](images/captura1.png)
 
 ## ✨ Key Features
 
@@ -21,6 +23,8 @@ Fully Customizable: edit alias, icon, or color with instant updates.
  "npmcolor.showInExplorer": true
 }
 ```
+**Edit package alias and color**
+   ![Edit Screenshot](images/ezgif.com-cut.gif)
 
 > Easily recognize projects at a glance.
 
@@ -35,8 +39,8 @@ Fully Customizable: edit alias, icon, or color with instant updates.
 Each script runs in its own terminal, matching the panel:
 
 ```text
-[dev] 🔵 auth-service
-[build] 🟡 dashboard-app
+🔵 [dev] auth-service
+🟡 [build] dashboard-app
 ```
 
 * Same color
@@ -53,6 +57,9 @@ Right-click any package → **Edit**:
 * Change icon
 * Change color
 * Updates instantly in panel and terminal
+
+**Running scripts in matched terminals**
+   ![Terminal Screenshot](images/video1-ezgif.com-cut.gif)
 
 ### 🔍 Automatic Detection
 
@@ -88,36 +95,6 @@ All packages and scripts in one place:
 * Microfrontends
 * Multi-service architectures
 * Developers juggling multiple terminals
-
----
-
-## ⚙️ Configuration Example
-
-```json
-{
-  "npmcolor.showInExplorer": true,
-  "npmcolor.packageManager": "auto",
-  "npmcolor.packageColors": {
-    "auth-service": "terminal.ansiRed",
-    "dashboard-app": "terminal.ansiBlue"
-  }
-}
-```
-
----
-
-## 📸 Screenshots
-
-1. **Panel view with colored packages**
-   ![Panel Screenshot](https://via.placeholder.com/600x300.png?text=Panel+View)
-
-2. **Running scripts in matched terminals**
-   ![Terminal Screenshot](https://github.com/rosa-dev/npm-color/raw/HEAD/images/captura1.png)
-
-3. **Edit package alias and color**
-   ![Edit Screenshot](https://github.com/rosa-dev/npm-color/raw/HEAD/images/ezgif.com-cut.gif)
-
-> Screenshots dramatically increase installation likelihood — make sure these highlight the colors, status, and clean terminals.
 
 ---
 
