@@ -1,10 +1,10 @@
 {
-  "name": "npm-color",
-  "displayName": "NPM Color",
+  "name": "npm-colors",
+  "displayName": "NPM Colors",
   "description": "Visual npm/pnpm/yarn script manager for monorepos. Auto-detects all packages, color-coded terminals, unified panel.",
   "version": "0.1.0",
   "publisher": "rosa-dev",
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/rosaCar-dev/npm-color.git"
   },
@@ -34,8 +34,8 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "npmcolor",
-          "title": "NPM Color",
+          "id": "npmcolors",
+          "title": "NPM Colors",
           "icon": "images/activitybar-icon.svg"
         }
       ]
@@ -51,7 +51,7 @@
       "explorer": [
         {
           "id": "npmcolor.packagesViewExplorer",
-          "name": "NPM Color",
+          "name": "NPM Colors",
           "icon": "images/activitybar-icon.svg",
           "when": "config.npmcolor.showInExplorer"
         }
@@ -136,7 +136,7 @@
       ]
     },
     "configuration": {
-      "title": "NPM Color",
+      "title": "NPM Colors",
       "properties": {
         "npmcolor.exclude": {
           "type": "array",
@@ -170,11 +170,14 @@
           "description": "Package manager to use. Auto detects from lock file."
         },
         "npmcolor.colorMode": {
-  "type": "string",
-  "enum": ["auto", "custom"],
-  "default": "auto",
-  "description": "Color mode: auto (index-based) or custom (user-defined)"
-},
+          "type": "string",
+          "enum": [
+            "auto",
+            "custom"
+          ],
+          "default": "auto",
+          "description": "Color mode: auto (index-based) or custom (user-defined)"
+        },
         "npmcolor.showInExplorer": {
           "type": "boolean",
           "default": false,
