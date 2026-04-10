@@ -2,7 +2,7 @@
   "name": "npm-colors",
   "displayName": "NPM Colors",
   "description": "Visual npm/pnpm/yarn script manager for monorepos. Auto-detects all packages, color-coded terminals, unified panel.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "rosa-dev",
   "repository": {
     "type": "git",
@@ -41,7 +41,7 @@
       ]
     },
     "views": {
-      "npmcolor": [
+      "npmcolors": [
         {
           "id": "npmcolor.packagesView",
           "name": "Packages",
